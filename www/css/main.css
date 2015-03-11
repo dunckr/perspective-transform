@@ -1,0 +1,9 @@
+body {
+	background-color: red;
+}
+h1 {
+	color: red;
+}
+img {
+	transform: rotateX(60deg) rotateZ(-50deg);
+}
