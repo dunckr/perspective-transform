@@ -2,12 +2,17 @@ $ = require "jquery"
 
 $ ->
   $canvas = $("canvas")
-  canvas = $canvas[0]
+
+  for el in $canvas
+    loadImageOntoCanvas(el)
+
+loadImageOntoCanvas = (el) ->
+  $el = $(el)
+  canvas = el
   img = new Image()
   img.src = "images/example.jpg"
-
   img.onload = ->
-    $canvas.click -> onClick(canvas, img)
+    $el.click -> onClick(canvas, img)
     canvas.width = 100
     canvas.height = 100
     ctx = canvas.getContext("2d")
