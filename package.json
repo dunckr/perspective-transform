@@ -16,7 +16,9 @@
     "The 'plugin' example makes that file requireable with `require('plugin')`,",
     "and available to browserify-shim as 'plugin' on line 30."
   ],
-  "browser": {},
+  "browser": {
+    "underscore": "backbone/node_modules/underscore"
+  },
   "browserify": {
     "transform": [
       "browserify-shim",
@@ -62,6 +64,7 @@
     "watchify": "^2.4.0"
   },
   "dependencies": {
+    "backbone": "^1.1.2",
     "jquery": "~2.1.0"
   }
 }
