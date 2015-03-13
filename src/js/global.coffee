@@ -1,4 +1,6 @@
-$ = require "jquery"
+_ = require "underscore"
+Backbone = require "backbone"
+Backbone.$ = $ = require "jquery"
 Items = require "./collections/items"
 ListView = require "./views/list"
 
