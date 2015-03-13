@@ -1,4 +1,4 @@
-#import 'lib/persistence.jstalk'
+#import 'lib/persistence.js'
 
 #import 'web.js'
 
