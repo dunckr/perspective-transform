@@ -4,7 +4,7 @@ Backbone.$ = $ = require "jquery"
 Template = require "../templates/item.hbs"
 
 class ItemView extends Backbone.View
-  MIN_SIZE: 200
+  MIN_SIZE: 300
   tagName: "article"
   template: Template
   events:
@@ -25,13 +25,19 @@ class ItemView extends Backbone.View
     @canvas.width = @MIN_SIZE
     @canvas.height = @MIN_SIZE
     @transform()
-    @ctx.drawImage(@img, 0, 0)
+    @ctx.drawImage(@img,
+      0, 0, @img.width, @img.height,
+      0, 0, (@canvas.width/2), (@canvas.height/2)
+    )
 
   click: ->
     @canvas.width = @img.width * @model.get("offsetHeight")
     @canvas.height = @img.height * @model.get("offsetWidth")
     @transform()
-    @ctx.drawImage(@img, (@canvas.width-@img.width)/2, (@canvas.height-@img.height)/2)
+    @ctx.drawImage(@img,
+      (@canvas.width-@img.width)/2,
+      (@canvas.height-@img.height)/2
+    )
     @saveImg()
 
   saveImg: ->
