@@ -23,13 +23,13 @@ class ItemView extends Backbone.View
   imageLoaded: ->
     @canvas.width = 100
     @canvas.height = 100
-    @transform(@ctx, @model.get("matrix"))
+    @transform()
     @ctx.drawImage(@img, 0, 0)
 
   click: ->
     @canvas.width = @img.width * @model.get("offsetHeight")
     @canvas.height = @img.height * @model.get("offsetWidth")
-    @transform(@ctx, @model.get("matrix"))
+    @transform()
     @ctx.drawImage(@img, (@canvas.width-@img.width)/2, (@canvas.height-@img.height)/2)
     @saveImg()
 
@@ -37,9 +37,10 @@ class ItemView extends Backbone.View
     data = @canvas.toDataURL("image/png")
     window.location.href = data
 
-  transform: (ctx, matrix) ->
+  transform: ->
     # call not working.
-    ctx.transform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5])
+    matrix = @model.get("matrix")
+    @ctx.transform(matrix[0], matrix[1], matrix[2], matrix[3], matrix[4], matrix[5])
 
   render: ->
     @$el.html(@template)
