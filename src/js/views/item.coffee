@@ -4,6 +4,7 @@ Backbone.$ = $ = require "jquery"
 Template = require "../templates/item.hbs"
 
 class ItemView extends Backbone.View
+  MIN_SIZE: 200
   tagName: "article"
   template: Template
   events:
@@ -21,8 +22,8 @@ class ItemView extends Backbone.View
     @img.onload = => @imageLoaded()
 
   imageLoaded: ->
-    @canvas.width = 100
-    @canvas.height = 100
+    @canvas.width = @MIN_SIZE
+    @canvas.height = @MIN_SIZE
     @transform()
     @ctx.drawImage(@img, 0, 0)
 
