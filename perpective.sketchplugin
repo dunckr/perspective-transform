@@ -1,4 +1,5 @@
 #import 'lib/persistence.js'
 #import 'lib/web.js'
 
-setupWebView()
+//setupWebView();
+saveSelectionToImage();
