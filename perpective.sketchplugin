@@ -1,6 +1,4 @@
 #import 'lib/persistence.js'
-
-#import 'web.js'
-
+#import 'lib/web.js'
 
 setupWebView()
