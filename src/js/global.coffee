@@ -8,11 +8,11 @@ Item = require "./models/item"
 
 $ ->
   items = new Items()
-  item1 = new Item()
-  item2 = new Item()
-  item3 = new Item()
-  item4 = new Item()
-  item5 = new Item()
-  item6 = new Item()
-  items.add([item1, item2, item3, item4, item5, item6])
+  data = [
+    [1, -0.08, 0, 1, 0, 50]
+    [1, -0.08, 0, 1, 0, 50]
+  ]
+  for matrix in data
+    item = new Item(matrix: matrix)
+    items.add(item)
   new ListView(collection: items).render()

@@ -26,9 +26,13 @@ class ItemView extends Backbone.View
     @canvas.height = @MIN_SIZE
     @transform()
     @ctx.drawImage(@img,
-      0, 0, @img.width, @img.height,
+      #0, 0, @img.width, @img.height
       0, 0, (@canvas.width/2), (@canvas.height/2)
     )
+    #@ctx.drawImage(@img,
+      #0, 0, @img.width, @img.height,
+      #0, 0, (@canvas.width/2), (@canvas.height/2)
+    #)
 
   click: ->
     @canvas.width = @img.width * @model.get("offsetHeight")
