@@ -198,11 +198,6 @@ $ ->
   # Wire in the control handles to dragging. Call 'redrawImg' when they change.
   controlHandlesElement = document.getElementById('controlHandles')
   setupControlHandles controlHandlesElement, redrawImg
-  # Wire up the control handle toggle
-  drawControlPointsElement = document.getElementById('drawControlPoints')
-
-  drawControlPointsElement.onchange = ->
-    controlHandlesElement.style.visibility = if ! !drawControlPointsElement.checked then 'visible' else 'hidden'
 
   # Create a WegGL context from the canvas which will have the screen image
   # rendered to it. NB: preserveDrawingBuffer is needed for rendering the
