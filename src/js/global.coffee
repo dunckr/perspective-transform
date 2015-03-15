@@ -214,14 +214,6 @@ $ ->
     # Solve for T and return the elements as a single array
     numeric.transpose(numeric.dot(numeric.inv(A), b))[0]
 
-  syncQualityOptions = ->
-    qualityOptions.anisotropicFiltering = ! !anisotropicFilteringElement.checked
-    qualityOptions.mipMapping = ! !mipMappingFilteringElement.checked
-    qualityOptions.linearFiltering = ! !linearFilteringElement.checked
-    # re-load the texture if possible
-    loadScreenTexture()
-    return
-
   setupControlHandles = (controlHandlesElement, onChangeCallback) ->
     # Use d3.js to provide user-draggable control points
     rectDragBehav = d3.behavior.drag().on('drag', (d, i) ->
@@ -265,13 +257,10 @@ $ ->
     bgImage.src = document.getElementById('background').src
     return
 
-  syncQualityOptions()
+  loadScreenTexture()
   # UI for saving image
   document.getElementById('saveResult').onclick = saveResult
   # Reflect any changes in quality options
-  anisotropicFilteringElement.onchange = syncQualityOptions
-  mipMappingFilteringElement.onchange = syncQualityOptions
-  linearFilteringElement.onchange = syncQualityOptions
   # Wire in the control handles to dragging. Call 'redrawImg' when they change.
   controlHandlesElement = document.getElementById('controlHandles')
   setupControlHandles controlHandlesElement, redrawImg
