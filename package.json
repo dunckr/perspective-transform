@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "backbone": "^1.1.2",
+    "d3": "^3.5.5",
     "jquery": "~2.1.0"
   }
 }

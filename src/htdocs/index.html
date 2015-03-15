@@ -10,6 +10,30 @@
 
 <body>
   <div id="list"></div>
+  <canvas></canvas>
+  <div id="errors">
+    <!-- Any errors will go here wrapped in a div with an 'errorMessage' class. -->
+  </div>
+  <p>
+    Drag points around to distort image.
+    <input type="checkbox" checked="1" id="drawControlPoints"></input>
+    <label for="drawControlPoints">Draw control points.</label>
+    <input type="checkbox" checked="1" id="anisotropicFiltering"></input>
+    <label for="anisotropicFiltering">Anisotropic filtering.</label>
+    <input type="checkbox" checked="1" id="mipMapping"></input>
+    <label for="mipMapping">MIP mapping.</label>
+    <input type="checkbox" checked="1" id="linearFiltering"></input>
+    <label for="linearFiltering">(Bi-/Tri-)linear filtering.</label>
+    <button id="saveResult">Download as PNG</button>
+  </p>
+  <div id="container">
+    <!-- If background and/or screen image are not hosted on the
+         same domain as this page, the host must support CORS. -->
+    <img id="background" src="http://i.imgur.com/eFSch02.jpg">
+    <img id="screen" src="http://i.imgur.com/vsZypFu.png">
+    <canvas width="500" height="507" id="screenCanvas"></canvas>
+    <svg width="500" height="507" id="controlHandles"></svg>
+  </div>
   <script src="global.js"></script>
 
   <script>
