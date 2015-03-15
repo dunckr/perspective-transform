@@ -9,6 +9,7 @@ numeric = require "./vendor/numeric"
 
 d3 = require "d3"
 WebGL = require "./utils/webgl"
+Calc = require "./utils/calc"
 
 $ ->
   controlPoints = [
@@ -48,8 +49,8 @@ $ ->
     gl.bindTexture gl.TEXTURE_2D, glResources.screenTexture
     # Scale up the texture to the next highest power of two dimensions.
     canvas = document.createElement('canvas')
-    canvas.width = nextHighestPowerOfTwo(extent.w)
-    canvas.height = nextHighestPowerOfTwo(extent.h)
+    canvas.width = Calc.nextHighestPowerOfTwo(extent.w)
+    canvas.height = Calc.nextHighestPowerOfTwo(extent.h)
     ctx = canvas.getContext('2d')
     ctx.drawImage image, 0, 0, image.width, image.height
     gl.texImage2D gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas
@@ -100,17 +101,6 @@ $ ->
     # Redraw the image
     redrawImg()
     return
-
-  isPowerOfTwo = (x) ->
-    (x & x - 1) == 0
-
-  nextHighestPowerOfTwo = (x) ->
-    --x
-    i = 1
-    while i < 32
-      x = x | x >> i
-      i <<= 1
-    x + 1
 
   redrawImg = ->
     if !gl or !glResources or !srcPoints
