@@ -32,10 +32,6 @@ $ ->
   ]
   # The normalised texture co-ordinates of the quad in the screen image.
   srcPoints = undefined
-  # UI for controlling quality
-  anisotropicFilteringElement = document.getElementById('anisotropicFiltering')
-  mipMappingFilteringElement = document.getElementById('mipMapping')
-  linearFilteringElement = document.getElementById('linearFiltering')
   # Options for controlling quality.
   qualityOptions = {}
 
@@ -55,10 +51,10 @@ $ ->
     ctx.drawImage image, 0, 0, image.width, image.height
     gl.texImage2D gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas
     if qualityOptions.linearFiltering
-      gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, if qualityOptions.mipMapping then gl.LINEAR_MIPMAP_LINEAR else gl.LINEAR
+      gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR
       gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR
     else
-      gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, if qualityOptions.mipMapping then gl.NEAREST_MIPMAP_NEAREST else gl.LINEAR
+      gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR
       gl.texParameteri gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST
     if anisoExt
       # turn the anisotropy knob all the way to 11 (or down to 1 if it is
@@ -163,7 +159,6 @@ $ ->
     gl.bindTexture gl.TEXTURE_2D, glResources.screenTexture
     gl.uniform1i glResources.samplerUniform, 0
     gl.drawArrays gl.TRIANGLE_STRIP, 0, 4
-    return
 
   setupControlHandles = (controlHandlesElement, onChangeCallback) ->
     # Use d3.js to provide user-draggable control points
@@ -190,15 +185,11 @@ $ ->
     bgImage.crossOrigin = ''
 
     bgImage.onload = ->
-      #ctx.drawImage bgImage, 0, 0
       ctx.drawImage screenCanvasElement, 0, 0
-      #Canvas2Image.saveAsPNG resultCanvas
       data = resultCanvas.toDataURL("image/png")
       window.location.href = data
-      return
 
     bgImage.src = document.getElementById('background').src
-    return
 
   loadScreenTexture()
   # UI for saving image
@@ -212,7 +203,6 @@ $ ->
 
   drawControlPointsElement.onchange = ->
     controlHandlesElement.style.visibility = if ! !drawControlPointsElement.checked then 'visible' else 'hidden'
-    return
 
   # Create a WegGL context from the canvas which will have the screen image
   # rendered to it. NB: preserveDrawingBuffer is needed for rendering the
@@ -227,11 +217,6 @@ $ ->
   # See if we have the anisotropic filtering extension by trying to get
   # if from the WebGL implementation.
   anisoExt = gl.getExtension('EXT_texture_filter_anisotropic') or gl.getExtension('MOZ_EXT_texture_filter_anisotropic') or gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic')
-  # If we failed, tell the user that their image will look like poo on a
-  # stick.
-  if !anisoExt
-    anisotropicFilteringElement.checked = false
-    anisotropicFilteringElement.disabled = true
   # Setup the GL context compiling the shader programs and returning the
   # attribute and uniform locations.
   glResources = WebGL.setupGlContext(gl)
