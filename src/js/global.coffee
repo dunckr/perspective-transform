@@ -181,14 +181,6 @@ $ ->
     ).attr('r', 30).attr('class', 'control-point').call(rectDragBehav)
     return
 
-  addError = (message) ->
-    container = document.getElementById('errors')
-    errMessage = document.createElement('div')
-    errMessage.textContent = message
-    errMessage.className = 'errorMessage'
-    container.appendChild errMessage
-    return
-
   saveResult = ->
     resultCanvas = document.createElement('canvas')
     resultCanvas.width = screenCanvasElement.width
@@ -232,8 +224,6 @@ $ ->
     depth: false
     preserveDrawingBuffer: true
   gl = screenCanvasElement.getContext('webgl', glOpts) or screenCanvasElement.getContext('experimental-webgl', glOpts)
-  if !gl
-    addError 'Your browser doesn\'t seem to support WebGL.'
   # See if we have the anisotropic filtering extension by trying to get
   # if from the WebGL implementation.
   anisoExt = gl.getExtension('EXT_texture_filter_anisotropic') or gl.getExtension('MOZ_EXT_texture_filter_anisotropic') or gl.getExtension('WEBKIT_EXT_texture_filter_anisotropic')
@@ -242,7 +232,6 @@ $ ->
   if !anisoExt
     anisotropicFilteringElement.checked = false
     anisotropicFilteringElement.disabled = true
-    addError 'Your browser doesn\'t support anisotropic filtering. ' + 'Ordinary MIP mapping will be used.'
   # Setup the GL context compiling the shader programs and returning the
   # attribute and uniform locations.
   glResources = WebGL.setupGlContext(gl)
