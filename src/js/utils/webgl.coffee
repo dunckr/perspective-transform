@@ -93,10 +93,9 @@ module.exports =
     gl.uniform1i glResources.samplerUniform, 0
     gl.drawArrays gl.TRIANGLE_STRIP, 0, 4
 
-  screenSetup: (screenImgElement, anisoExt, gl, glResources, cb) ->
+  screenSetup: (image, anisoExt, gl, glResources, cb) ->
     if !gl or !glResources
       return
-    image = screenImgElement
     extent =
       w: image.naturalWidth
       h: image.naturalHeight
@@ -137,6 +136,6 @@ module.exports =
     gl.bufferData gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW
     # Redraw the image
     if !gl or !glResources or !srcPoints
-      console.log ""
+      return
     else
       cb(srcPoints)

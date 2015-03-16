@@ -1,34 +1,34 @@
-section {} article {
-  @include media($medium-screen) {
-    @include span-columns(4);
-    @include omega(3n);
-  }
-  text-align:center;
-  cursor:pointer;
-}
-article:hover {
-  transform: scale(1.5);
-}
-#container {
-  position: relative;
-  width: 500px;
-  height: 507px;
-}
-#container * {
-  position: absolute;
-}
-.errorMessage {
-  border: 1px solid #dFb5b4;
-  background: #fcf2f2;
-  color: #c7254e;
-  padding: 0.5em;
-  border-radius: 5px;
-}
-circle.control-point {
-  fill: green;
-  fill-opacity: 0.25;
-}
-circle.control-point:hover {
-  stroke: yellow;
-  stroke-width: 2px;
-}
+/*section {} article {*/
+  /*@include media($medium-screen) {*/
+    /*@include span-columns(4);*/
+    /*@include omega(3n);*/
+  /*}*/
+  /*text-align:center;*/
+  /*cursor:pointer;*/
+/*}*/
+/*article:hover {*/
+  /*transform: scale(1.5);*/
+/*}*/
+/*#container {*/
+  /*position: relative;*/
+  /*width: 500px;*/
+  /*height: 507px;*/
+/*}*/
+/*#container * {*/
+  /*position: absolute;*/
+/*}*/
+/*.errorMessage {*/
+  /*border: 1px solid #dFb5b4;*/
+  /*background: #fcf2f2;*/
+  /*color: #c7254e;*/
+  /*padding: 0.5em;*/
+  /*border-radius: 5px;*/
+/*}*/
+/*circle.control-point {*/
+  /*fill: green;*/
+  /*fill-opacity: 0.25;*/
+/*}*/
+/*circle.control-point:hover {*/
+  /*stroke: yellow;*/
+  /*stroke-width: 2px;*/
+/*}*/
