@@ -30,13 +30,21 @@ class ItemView extends Backbone.View
     WebGL.screenSetup(@image, @anisoExt, @gl, @glResources, (srcPoints) => @redrawImg(srcPoints))
 
   redrawImg: (srcPoints) ->
+    @srcPoints = srcPoints
     vpW = @canvas.width
     vpH = @canvas.height
     v = Calc.transformationFromQuadCorners(srcPoints, @model.get("points"))
     WebGL.draw(v, vpW, vpH, @gl, @glResources)
 
   click: ->
-    console.log "clicked"
+    @canvas.width = @image.width * 2
+    @canvas.height = @image.height * 2
+    @redrawImg(@srcPoints)
+    @saveImg()
+
+  saveImg: ->
+    data = @canvas.toDataURL("image/png")
+    window.location.href = data
 
   render: ->
     @$el.html(@template)
