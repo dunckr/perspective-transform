@@ -1,7 +1,10 @@
+section {
+  padding-top: 100px;
+}
 article {
   @include media($medium-screen) {
-    @include span-columns(6);
-    @include omega(2n);
+    @include span-columns(4);
+    @include omega(3n);
   }
   text-align:center;
   cursor:pointer;
