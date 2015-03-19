@@ -1,0 +1,25 @@
+// Typography
+$font-family: 'Open Sans', sans-serif;
+
+// Font Sizes
+$base-font-size: 1em;
+$icon-font-size: 26px;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$dark-gray: #464646;
+$medium-gray: #8A8A8A;
+$light-gray: #A2A2A2;
+$bg-color: #D1D1D1;
+
+// Font Colors
+$base-font-color: $dark-gray;

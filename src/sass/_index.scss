@@ -1,10 +1,27 @@
+body {
+  margin: 0;
+}
+header {
+  .title {
+    @include span-columns(2);
+    text-align: center;
+  }
+  ul {
+    @include span-columns(10);
+    list-style-type: none;
+  }
+  .icon {
+    font-size: $icon-font-size;
+    padding-right: 20px;
+  }
+}
 section {
-  padding-top: 100px;
+  padding-top: 20px;
 }
 article {
   @include media($medium-screen) {
-    @include span-columns(4);
-    @include omega(3n);
+    @include span-columns(6);
+    @include omega(2n);
   }
   text-align:center;
   cursor:pointer;
