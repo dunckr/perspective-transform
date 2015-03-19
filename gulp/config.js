@@ -1,5 +1,6 @@
 var dest = "./build";
 var src = './src';
+var dist = "./dist";
 
 module.exports = {
   browserSync: {
