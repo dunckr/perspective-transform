@@ -2,6 +2,9 @@ body {
   margin: 0;
 }
 header {
+  @include clearfix();
+  background-color: $bg-color;
+  padding-top: 50px;
   .title {
     @include span-columns(2);
     text-align: center;
@@ -19,6 +22,7 @@ section {
   padding-top: 20px;
 }
 article {
+  background-color: white;
   @include media($medium-screen) {
     @include span-columns(6);
     @include omega(2n);
