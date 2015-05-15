@@ -6,21 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>sketch-perspective</title>
   <link rel="stylesheet" href="app.css" />
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"
-  type="text/css">
 </head>
 
 <body>
-  <div id="list"></div>
-  <script src="global.js"></script>
+  <canvas id="canvas"></canvas>
+  <div id="container" class="container">
+    <ul id="links" class="links">
+      <p>Right click and save image then close window.</p>
+      <li><a class="who" href="http://twitter.com/dunckr" target="_blank">by dunckr</a></li>
+      <li><a class="blog" href="http://blog.dunckr.com" target="_blank">Blog</a></li>
+      <li><a class="source" href="https://github.com/dunckr/sketch-perspective" target="_blank">Source</a></li>
+    </ul>
+  </div>
 
+  <script src="global.js"></script>
   <script>
-    (function(b, o, i, l, e, r)
-    {
+    (function(b, o, i, l, e, r) {
       b.GoogleAnalyticsObject = l;
       b[l] || (b[l] =
-        function()
-        {
+        function() {
           (b[l].q = b[l].q || []).push(arguments)
         });
       b[l].l = +new Date;

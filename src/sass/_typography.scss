@@ -1,8 +1,0 @@
-body {
-  @include font-feature-settings("kern", "liga", "pnum");
-  -webkit-font-smoothing: antialiased;
-  font-family: $font-family;
-  color: $base-font-color;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-}
