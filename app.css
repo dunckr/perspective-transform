@@ -1,14 +1,11 @@
 body {
-  margin: 0;
-}
+  margin: 0; }
 
 canvas {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 #imageLoader {
-  display: none;
-}
+  display: none; }
 
 .links {
   position: absolute;
@@ -17,13 +14,11 @@ canvas {
   bottom: 40px;
   right: 20px;
   padding: 0;
-  margin: 0;
-}
+  margin: 0; }
 
 .links li {
   border-bottom: #222 1px solid;
-  border-bottom: rgba(255, 255, 255, 0.1) 1px solid;
-}
+  border-bottom: rgba(255, 255, 255, 0.1) 1px solid; }
 
 .links p {
   font-smoothing: subpixel-antialiased;
@@ -37,8 +32,7 @@ canvas {
   display: block;
   width: 100%;
   opacity: 0.6;
-  color: black;
-}
+  color: black; }
 
 .links li a {
   transition: opacity 0.2s ease-out;
@@ -53,27 +47,22 @@ canvas {
   display: block;
   width: 100%;
   opacity: 0.4;
-  color: black;
-}
+  color: black; }
 
 .links li a:hover {
-  opacity: 0.8;
-}
+  opacity: 0.8; }
 
 .links li .who:before {
   opacity: 0.5;
   content: '@';
-  float: left;
-}
+  float: left; }
 
 .links li .source:before {
   opacity: 0.5;
   content: '{}';
-  float: left;
-}
+  float: left; }
 
 .links li .blog:before {
   opacity: 0.5;
   content: '&';
-  float: left;
-}
+  float: left; }
