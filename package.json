@@ -4,7 +4,7 @@
   "description": "change image's perspectives",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dunckr/sketch-perspective.git"
+    "url": "git://github.com/dunckr/perspective.git"
   },
   "scripts": {
     "watch": "gulp",
