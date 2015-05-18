@@ -4,7 +4,7 @@ Backbone = require "backbone"
 class Settings extends Backbone.Model
 
   defaults:
-    file: "images/example.png?#{new Date().getTime()}"
+    file: "images/example.png"
     perspective: 600
     rotateX: 0
     rotateY: 0

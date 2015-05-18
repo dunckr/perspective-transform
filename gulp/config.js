@@ -14,9 +14,7 @@ module.exports = {
     dest: dest,
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
-      imagePath: 'images', // Used by the image-url helper
-      includePaths: require('node-bourbon').includePaths,
-      includePaths: require('node-neat').includePaths
+      imagePath: 'images' // Used by the image-url helper
     }
   },
   images: {
