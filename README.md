@@ -2,6 +2,8 @@
 
 Change the perspective of your images.
 
+![Perspective example](https://raw.githubusercontent.com/dunckr/perspective/master/src/images/demo.jpg)
+
 #### Install
 
 `npm i`
