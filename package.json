@@ -8,7 +8,8 @@
   },
   "scripts": {
     "watch": "gulp",
-    "build": "gulp build"
+    "build": "gulp build",
+    "deploy": "gulp deploy"
   },
   "browser": {
     "underscore": "backbone/node_modules/underscore"
