@@ -8,7 +8,7 @@
   },
   "scripts": {
     "watch": "gulp",
-    "build": "gulp build",
+    "build": "gulp production",
     "deploy": "gulp deploy"
   },
   "browser": {
